@@ -8,10 +8,10 @@
  */
 void swap(int *n1, int *n2)
 {
-	int *temp = *a;
+	int temp = *n1;
 
-	*a = *b;
-	*b = *temp;
+	*n1 = *n2;
+	*n2 = temp;
 }
 /**
  * bubble_sort - bubble_sort algorithm
@@ -29,7 +29,7 @@ void bubble_sort(int *array, size_t size)
 			if (array[j] > array[j + 1])
 			{
 				swap(&array[j], &array[j + 1]);
-				print_array(array)
+				print_array(array, size);
 			}
 		}
 	}
