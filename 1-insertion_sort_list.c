@@ -11,7 +11,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *node, *cur, *back;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
-        	return;
+		return;
 
 	cur = (*list)->next;
 
@@ -36,7 +36,7 @@ void insertion_sort_list(listint_t **list)
 				*list = node;
 
 			print_list((const listint_t *)*list);
-        	}
-		cur = cur->next;	
+		}
+		cur = cur->next;
 	}
 }
