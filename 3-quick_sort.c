@@ -7,7 +7,7 @@
  * @array: our array
  * @size: size of array
  */
-void swap(int* array, size_t size, int *x, int *y)
+void swap(int *array, size_t size, int *x, int *y)
 {
 	int tmp;
 
@@ -32,7 +32,7 @@ void swap(int* array, size_t size, int *x, int *y)
 size_t lomuto(int *array, int l, int h, size_t size)
 {
 	int p = array[h];
-	int i , j;
+	int i, j;
 
 	for (i = j = l; j < h; j++)
 	{
