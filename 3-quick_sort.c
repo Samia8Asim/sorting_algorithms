@@ -4,13 +4,20 @@
  * swap - swap the elements
  * @x: first element
  * @y: second element
+ * @array: our array
+ * @size: size of array
  */
-void swap(int *x, int *y)
+void swap(int* array, size_t size, int *x, int *y)
 {
-	int tmp = *x;
+	int tmp;
 
-	*x = *y;
-	*y = tmp;
+	if (*x != *y)
+	{
+		tmp = *x;
+		*x = *y;
+		*y = tmp;
+		print_array((const int *)array, size);
+	}
 }
 
 /**
@@ -22,25 +29,23 @@ void swap(int *x, int *y)
  *
  * Return: index as integer
  */
-int lomuto(int *array, int l, int h, size_t size)
+size_t lomuto(int *array, int l, int h, size_t size)
 {
 	int p = array[h];
-	int i = l - 1, j;
+	int i , j;
 
-	for (j = l; j < h; j++)
+	for (i = j = l; j < h; j++)
 	{
 		if (array[j] < p)
 		{
+			swap(array, size, &array[i], &array[j]);
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
 		}
 	}
 
-	swap(&array[i + 1], &array[h]);
-	print_array(array, size);
+	swap(array, size, &array[i], &array[h]);
 
-	return (i + 1);
+	return (i);
 }
 
 /**
@@ -53,7 +58,7 @@ int lomuto(int *array, int l, int h, size_t size)
  */
 void quick_helper(int *array, int l, int h, size_t size)
 {
-	int pivot;
+	size_t pivot;
 
 	if (l < h)
 	{
@@ -71,7 +76,7 @@ void quick_helper(int *array, int l, int h, size_t size)
 */
 void quick_sort(int *array, size_t size)
 {
-	if (size < 2)
+	if (!array || size < 2)
 		return;
 
 	quick_helper(array, 0, size - 1, size);
