@@ -5,7 +5,7 @@
  * @n1: first number
  * @n2: second number
 */
-void swap(int *n1, int *n2)
+void swap1(int *n1, int *n2)
 {
 	int temp = *n1;
 	*n1 = *n2;
@@ -32,7 +32,7 @@ void selection_sort(int *array, size_t size)
 		}
 		if (min != i)
 		{
-			swap(&array[i], &array[min]);
+			swap1(&array[i], &array[min]);
 			print_array(array, size);
 		}
 	}
