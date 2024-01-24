@@ -8,41 +8,41 @@
 
 void counting_sort(int *array, size_t size)
 {
-	int max = array[0], j;
-	size_t i, idx;
-	int *count;
+	int max = 0;
+	size_t i, j, k;
+	int *counting;
 
-	if (size <= 1)
-		return;
-	for (i = 1; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		if (array[i] > max)
 		{
 			max = array[i];
 		}
 	}
-	count = malloc((max + 1) * sizeof(int));
-	if (count == NULL)
-	{
+	k = max + 1;
+	counting = (int *) malloc(k * sizeof(int));
+	if (counting == NULL)
 		return;
-	}
-	for (j = 0; j <= max; j++)
+	for (i = 0; i < k; i++)
 	{
-		count[j] = 0;
+		counting[i] = 0;
 	}
 	for (i = 0; i < size; i++)
 	{
-		count[array[i]]++;
+		counting[array[i]]++;
 	}
-	print_array(array, size);
-	idx = 0;
-	for (j = 0; j <= max; j++)
+	for (i = 0; i < k; i++)
 	{
-		while (count[j] > 0)
+		printf("%d ", counting[i]);
+	}
+	printf("\n");
+	i = 0;
+	for (j = 0; j < k; j++)
+	{
+		while (counting[j]-- > 0)
 		{
-			array[idx++] = j;
-			count[j]--;
+			array[i++] = j;
 		}
 	}
-	free(count);
+	free(counting);
 }
