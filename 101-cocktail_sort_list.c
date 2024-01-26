@@ -39,10 +39,8 @@ void cocktail_sort_list(listint_t **list)
 
 	node = *list;
 
-	do
-	{
+	do {
 		i = 0;
-
 		while (node && node->next)
 		{
 			if (node->n > node->next->n)
