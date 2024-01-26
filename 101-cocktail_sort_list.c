@@ -34,10 +34,11 @@ void cocktail_sort_list(listint_t **list)
 	if (!list || !*list)
 		return;
 
+	node = *list;
+
 	do
 	{
 		i = 0;
-		node = *list;
 
 		while (node && node->next)
 		{
