@@ -31,15 +31,16 @@ void swaping(listint_t **list, listint_t *f, listint_t *s)
 void cocktail_sort_list(listint_t **list)
 {
 	int i;
-	listint_t *node, *temp;
+	listint_t *node;
 
 	if (!list || !*list)
 		return;
 
+	node = *list;
+
 	do
 	{
 		i = 0;
-		node = *list;
 
 		while (node && node->next)
 		{
@@ -56,16 +57,16 @@ void cocktail_sort_list(listint_t **list)
 			break;
 
 		i = 0;
-		temp = node ? node->prev : *list;
-		while (temp && temp->prev)
+		while (node && node->prev)
 		{
-			if (temp->n < temp->prev->n)
+			if (node->n < node->prev->n)
 			{
-				swaping(list, temp->prev, temp);
+				swaping(list, node->prev, node);
 				print_list(*list);
 				i = 1;
 			}
-			temp = temp->prev;
+			else
+				node = node->prev;
 		}
 	} while (i);
 }
