@@ -30,6 +30,6 @@ void swap(int *array, size_t size, int *x, int *y);
 size_t lomuto(int *array, int l, int h, size_t size);
 void quick_helper(int *array, int l, int h, size_t size);
 void cocktail_sort_list(listint_t **list);
-void swaping(listint_t **list, listint_t *f, listint_t *s);
+listint_t *swaping(listint_t **list, listint_t *n);
 
 #endif
