@@ -20,6 +20,8 @@ void swaping(listint_t **list, listint_t *f, listint_t *s)
 	s->next = f;
 	f->prev = s;
 	s->prev = f->prev;
+
+	print_list(*list);
 }
 
 /**
@@ -34,11 +36,10 @@ void cocktail_sort_list(listint_t **list)
 	if (!list || !*list)
 		return;
 
-	node = *list;
-
 	do
 	{
 		i = 0;
+		node = *list;
 
 		while (node && node->next)
 		{
